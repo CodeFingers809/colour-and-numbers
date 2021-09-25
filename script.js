@@ -1,7 +1,9 @@
 let selectedGameMode = "rgb";
+let correctColor;
+let gameWon;
 gameRunner();
 document.querySelectorAll(".colorCodeBtn").forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
     if (btn.classList.contains("selectedColorCode")) return;
     btn.parentElement
       .querySelector(".selectedColorCode")
@@ -16,48 +18,59 @@ function randomColorGenerator() {
   let red = Math.round(Math.random() * 255);
   let green = Math.round(Math.random() * 255);
   let blue = Math.round(Math.random() * 255);
-  if (selectedGameMode === "rgb") {
+  if (selectedGameMode == "rgb") {
     return `rgb(${red}, ${green}, ${blue})`;
-  } else if (selectedGameMode === "hex") {
-    let hexRed =
-      red.toString(16).length === 2 ? red.toString(16) : "0" + red.toString(16);
-    let hexGreen =
-      green.toString(16).length === 2
-        ? green.toString(16)
-        : "0" + green.toString(16);
-    let hexBlue =
-      blue.toString(16).length === 2
-        ? blue.toString(16)
-        : "0" + blue.toString(16);
+  } else if (selectedGameMode == "hex") {
+    let hexRed = red.toString(16).padStart(2, "0");
+    let hexGreen = green.toString(16).padStart(2, "0");
+    let hexBlue = blue.toString(16).padStart(2, "0");
     return `#${hexRed + hexGreen + hexBlue}`;
-  } else if (selectedGameMode === "hsl") {
-    let h = Math.floor(Math.random() * 361);
-    let s = Math.floor(Math.random() * 101) + "%";
-    let l = Math.floor(Math.random() * 101) + "%";
-    return `hsl(${h}, ${s}, ${l})`;
+  } else if (selectedGameMode == "hsl") {
+    let h = Math.round(Math.random() * 360);
+    let s = Math.round(Math.random() * 100) + "%";
+    let l = Math.round(Math.random() * 100) + "%";
+    return `hsl(${h}deg ${s} ${l})`;
   }
 }
 
 function gameRunner() {
-  let correctColor = randomColorGenerator();
+  document.querySelector(".gameMessage").innerHTML = "Select from below!";
+  correctColor = randomColorGenerator();
   let randomNumber = Math.floor(Math.random() * 6);
   document.querySelectorAll(".gameColorOption").forEach((btn) => {
-    btn.style.backgroundColor = randomColorGenerator();
+    btn.setAttribute("style", "background-color: " + randomColorGenerator());
   });
-  document.querySelectorAll(".gameColorOption")[
-    randomNumber
-  ].style.backgroundColor = correctColor;
+  document
+    .querySelectorAll(".gameColorOption")
+    [randomNumber].setAttribute("style", "background-color: " + correctColor);
 
   document.querySelector(".gameQtsColor").innerHTML = correctColor;
   document.querySelectorAll(".gameColorOption").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      if (e.target.style.backgroundColor === correctColor) {
-        document.querySelector(".gameMessage").innerHTML = "Correct!";
+      if (
+        e.target.getAttribute("style").substr(18) === correctColor &&
+        !gameWon
+      ) {
+        document.querySelector(
+          ".gameMessage"
+        ).innerHTML = `Correct!<br><button class="playAgainBtn">Play Again!</button>`;
         document.querySelectorAll(".gameColorOption").forEach((btn) => {
           btn.style.backgroundColor = correctColor;
         });
-      } else {
-        document.querySelector(".gameMessage").innerHTML = "Wrong!";
+        gameWon = true;
+        e.target.style.transform = "scale(1.2)";
+        e.target.style.border = "4px solid chartreuse";
+        document
+          .querySelector(".playAgainBtn")
+          .addEventListener("click", () => {
+            gameRunner();
+            gameWon = false;
+          });
+      } else if (
+        e.target.getAttribute("style").substr(18) !== correctColor &&
+        !gameWon
+      ) {
+        document.querySelector(".gameMessage").innerHTML = `Wrong!`;
         e.target.style.transform = "scale(1.2)";
         e.target.style.border = "4px solid red";
       }

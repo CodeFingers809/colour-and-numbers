@@ -17,6 +17,9 @@ body {
 .nav-link:hover {
   text-decoration: underline;
 }
+.navbar-brand:hover > .homeLink{
+  color: lightgray;
+}
 
 .colorCodeSelection {
   display: flex;
@@ -40,6 +43,9 @@ body {
   font-family: "Gochi Hand", cursive;
   color: white;
   font-size: 24px;
+}
+.colorCodeBtn:hover{
+  text-decoration: underline;
 }
 .selectedColorCode {
   background-color: white;
@@ -76,6 +82,20 @@ body {
   transition: all 150ms ease-in-out;
 }
 .gameColorOption:hover{
+  transform: scale(1.15);
+  box-shadow: 4px 6px 24px hsla(188, 19%, 20%, 0.3);
+}
+
+.playAgainBtn{
+  border: none;
+  outline: none;
+  background-color: #387ff2;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 150ms ease-in-out;
+}
+.playAgainBtn:hover{
   transform: scale(1.15);
   box-shadow: 4px 6px 24px hsla(188, 19%, 20%, 0.3);
 }
