@@ -1,12 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colors and Numbers</title>
-</head>
-<body>
-  Hello!
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/palette-fill.svg" type="image/svg+xml" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./styles/generator.css" />
+    <title>Colors and Numbers</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-2 mt-2 me-5" href="/">
+          <i class="bi bi-palette-fill homeLink"></i>
+          <span class="homeLink">&</span>
+          <i class="bi bi-dice-3-fill homeLink"></i>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Game</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/generator">
+                Generator
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/converter">
+                Converter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--* Navbar End -->
+    <!-- Generator body-->
+    <div class="colorCodeSelection">
+      <button class="colorCodeBtn selectedColorCode" gameMode="rgb">
+        RGB & HEX
+      </button>
+      <button class="colorCodeBtn" gameMode="hsl">HSL</button>
+    </div>
+    <div class="generatorBody container d-flex flex-column align-items-center">
+      <div class="sliderContainer text-center">
+        <!-- red slider -->
+        <label for="redSlider">
+          Red:
+          <span>255</span>
+        </label>
+        <div class="rgbSliderDiv">
+          <input
+            type="range"
+            name="red"
+            class="rgbSlider"
+            id="redSlider"
+            min="0"
+            max="255"
+            value="255"
+          />
+        </div>
+        <!-- green slider -->
+        <label for="greenSlider">
+          Green:
+          <span>255</span>
+        </label>
+        <div class="rgbSliderDiv">
+          <input
+            type="range"
+            name="green"
+            class="rgbSlider"
+            id="greenSlider"
+            min="0"
+            max="255"
+            value="255"
+          />
+        </div>
+        <!-- blue slider -->
+        <label for="blueSlider">
+          Blue:
+          <span>255</span>
+        </label>
+        <div class="rgbSliderDiv">
+          <input
+            type="range"
+            name="blue"
+            class="rgbSlider"
+            id="blueSlider"
+            min="0"
+            max="255"
+            value="255"
+          />
+        </div>
+      </div>
+      <div class="hslGenerator">
+        <div class="sliderContainer text-center">
+          <!-- red slider -->
+          <label for="redSlider">
+            Red:
+            <span>255</span>
+          </label>
+          <div class="rgbSliderDiv">
+            <input
+              type="range"
+              name="red"
+              class="rgbSlider"
+              id="redSlider"
+              min="0"
+              max="255"
+              value="255"
+            />
+          </div>
+          <!-- green slider -->
+          <label for="greenSlider">
+            Green:
+            <span>255</span>
+          </label>
+          <div class="rgbSliderDiv">
+            <input
+              type="range"
+              name="green"
+              class="rgbSlider"
+              id="greenSlider"
+              min="0"
+              max="255"
+              value="255"
+            />
+          </div>
+          <!-- blue slider -->
+          <label for="blueSlider">
+            Blue:
+            <span>255</span>
+          </label>
+          <div class="rgbSliderDiv">
+            <input
+              type="range"
+              name="blue"
+              class="rgbSlider"
+              id="blueSlider"
+              min="0"
+              max="255"
+              value="255"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./scripts/generator.js"></script>
 </html>

@@ -52,50 +52,43 @@ body {
   color: #456064;
 }
 
-.gameContainer {
+.generatorBody {
+  width: 100vw;
+  padding: 30px 20px 20px 20px;
+  font-size: 30px;
   font-family: "Gochi Hand", cursive;
   color: white;
 }
-.gameQtsColor {
-  font-size: 60px;
-  line-height: 60px;
+.sliderContainer {
+  width: 100%;
 }
-.gameColorsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.rgbSliderDiv {
+  width: 100%;
 }
-.gameOptionsRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.rgbSlider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  height: 30px;
 }
-.gameColorOption {
-  background-color: chartreuse;
-  height: 150px;
-  width: 150px;
-  margin: 25px;
-  border-radius: 16px;
+.rgbSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 30px;
+  box-shadow: 0px 0px 0px 4px white;
+  border-spacing: 4px;
   cursor: pointer;
-  transition: all 150ms ease-in-out;
-}
-.gameColorOption:hover {
-  transform: scale(1.15);
-  box-shadow: 4px 6px 24px hsla(188, 19%, 20%, 0.3);
+  border-radius: 10px;
 }
 
-.playAgainBtn {
-  border: none;
-  outline: none;
-  background-color: #387ff2;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  transition: all 150ms ease-in-out;
+#redSlider {
+  background: linear-gradient(to right, black, red);
 }
-.playAgainBtn:hover {
-  transform: scale(1.15);
-  box-shadow: 4px 6px 24px hsla(188, 19%, 20%, 0.3);
+#greenSlider {
+  background: linear-gradient(to right, black, green);
+}
+#blueSlider {
+  background: linear-gradient(to right, black, blue);
 }
