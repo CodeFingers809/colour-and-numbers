@@ -1,0 +1,14 @@
+{
+  "name": "colors-and-numbers",
+  "version": "1.0.0",
+  "description": "A website to playaround with colors",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve"
+  },
+  "author": "Ayush Bohra",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^12.0.1"
+  }
+}
