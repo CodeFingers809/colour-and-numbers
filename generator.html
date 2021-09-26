@@ -60,66 +60,26 @@
     <!--* Navbar End -->
     <!-- Generator body-->
     <div class="colorCodeSelection">
-      <button class="colorCodeBtn selectedColorCode" gameMode="rgb">
+      <button class="colorCodeBtn selectedColorCode" generatorMode="rgb">
         RGB & HEX
       </button>
-      <button class="colorCodeBtn" gameMode="hsl">HSL</button>
+      <button class="colorCodeBtn" generatorMode="hsl">HSL</button>
     </div>
     <div class="generatorBody container d-flex flex-column align-items-center">
-      <div class="sliderContainer text-center">
-        <!-- red slider -->
-        <label for="redSlider">
-          Red:
-          <span>255</span>
-        </label>
-        <div class="rgbSliderDiv">
-          <input
-            type="range"
-            name="red"
-            class="rgbSlider"
-            id="redSlider"
-            min="0"
-            max="255"
-            value="255"
-          />
-        </div>
-        <!-- green slider -->
-        <label for="greenSlider">
-          Green:
-          <span>255</span>
-        </label>
-        <div class="rgbSliderDiv">
-          <input
-            type="range"
-            name="green"
-            class="rgbSlider"
-            id="greenSlider"
-            min="0"
-            max="255"
-            value="255"
-          />
-        </div>
-        <!-- blue slider -->
-        <label for="blueSlider">
-          Blue:
-          <span>255</span>
-        </label>
-        <div class="rgbSliderDiv">
-          <input
-            type="range"
-            name="blue"
-            class="rgbSlider"
-            id="blueSlider"
-            min="0"
-            max="255"
-            value="255"
-          />
-        </div>
-      </div>
-      <div class="hslGenerator">
-        <div class="sliderContainer text-center">
+      <!-- Entire RGB Generator -->
+      <div class="rgbGenerator d-flex flex-row align-items-center">
+        <div class="rgbColorDisplay"></div>
+        <div
+          class="
+            sliderContainer
+            d-flex
+            flex-column
+            align-items-center
+            text-center
+          "
+        >
           <!-- red slider -->
-          <label for="redSlider">
+          <label for="red">
             Red:
             <span>255</span>
           </label>
@@ -128,14 +88,14 @@
               type="range"
               name="red"
               class="rgbSlider"
-              id="redSlider"
+              id="red"
               min="0"
               max="255"
               value="255"
             />
           </div>
           <!-- green slider -->
-          <label for="greenSlider">
+          <label for="green">
             Green:
             <span>255</span>
           </label>
@@ -144,14 +104,14 @@
               type="range"
               name="green"
               class="rgbSlider"
-              id="greenSlider"
+              id="green"
               min="0"
               max="255"
               value="255"
             />
           </div>
           <!-- blue slider -->
-          <label for="blueSlider">
+          <label for="blue">
             Blue:
             <span>255</span>
           </label>
@@ -160,7 +120,91 @@
               type="range"
               name="blue"
               class="rgbSlider"
-              id="blueSlider"
+              id="blue"
+              min="0"
+              max="255"
+              value="255"
+            />
+          </div>
+          <div
+            class="
+              rgbDisplay
+              d-flex
+              flex-row
+              align-items-center
+              justify-content-center
+            "
+          >
+            <div class="rgbValueDisplay">
+              <span>RGB code:&nbsp;</span>
+              <span name="rgbValue" id="rgbValue">rgb(255, 255, 255)</span>
+            </div>
+            <button class="rgbCopyBtn"><i class="bi bi-clipboard"></i></button>
+          </div>
+          <div
+            class="
+              hexDisplay
+              d-flex
+              flex-row
+              align-items-center
+              justify-content-center
+            "
+          >
+            <div class="hexValueDisplay">
+              <span>HEX code:&nbsp;</span>
+              <span name="hexValue" id="hexValue">#ffffff</span>
+            </div>
+            <button class="hexCopyBtn"><i class="bi bi-clipboard"></i></button>
+          </div>
+        </div>
+      </div>
+      <!--* RGB generator end -->
+      <!-- Entire HSL generator -->
+      <div class="hslGenerator">
+        <div class="sliderContainer text-center">
+          <!-- hue slider -->
+          <label for="hueSlider">
+            Hue:
+            <span>360deg</span>
+          </label>
+          <div class="hslSliderDiv">
+            <input
+              type="range"
+              name="hue"
+              class="hslSlider"
+              id="hueSlider"
+              min="0"
+              max="255"
+              value="255"
+            />
+          </div>
+          <!-- saturation slider -->
+          <label for="saturationSlider">
+            Saturation:
+            <span>255</span>
+          </label>
+          <div class="hslSliderDiv">
+            <input
+              type="range"
+              name="saturation"
+              class="hslSlider"
+              id="saturationSlider"
+              min="0"
+              max="255"
+              value="255"
+            />
+          </div>
+          <!-- lightness slider -->
+          <label for="lightnessSlider">
+            Lightness:
+            <span>255</span>
+          </label>
+          <div class="hslSliderDiv">
+            <input
+              type="range"
+              name="lightness"
+              class="hslSlider"
+              id="lightnessSlider"
               min="0"
               max="255"
               value="255"
@@ -168,6 +212,7 @@
           </div>
         </div>
       </div>
+      <!--* HSL generator end -->
     </div>
   </body>
   <script

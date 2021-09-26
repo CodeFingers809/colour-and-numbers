@@ -59,36 +59,91 @@ body {
   font-family: "Gochi Hand", cursive;
   color: white;
 }
+.rgbColorDisplay {
+  height: 502px;
+  width: 300px;
+  background: white;
+  border: 2px solid white;
+  border-radius: 16px;
+}
+.rgbGenerator,
+.rgbSliderDiv,
 .sliderContainer {
   width: 100%;
 }
-.rgbSliderDiv {
-  width: 100%;
+.sliderContainer {
+  margin-left: 40px;
 }
-.rgbSlider {
+.rgbGenerator .rgbSlider {
   width: 100%;
   -webkit-appearance: none;
   appearance: none;
   outline: none;
   height: 30px;
 }
-.rgbSlider::-webkit-slider-thumb {
+.rgbGenerator .rgbSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 10px;
   height: 30px;
   box-shadow: 0px 0px 0px 4px white;
   border-spacing: 4px;
-  cursor: pointer;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
   border-radius: 10px;
 }
-
-#redSlider {
+.rgbGenerator .rgbSlider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.rgbGenerator #red {
   background: linear-gradient(to right, black, red);
 }
-#greenSlider {
+.rgbGenerator #green {
   background: linear-gradient(to right, black, green);
 }
-#blueSlider {
+.rgbGenerator #blue {
   background: linear-gradient(to right, black, blue);
+}
+.hslGenerator {
+  display: none;
+}
+
+.rgbDisplay,
+.hexDisplay {
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 20px;
+}
+.rgbValueDisplay,
+.hexValueDisplay {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 4px solid white;
+  border-radius: 16px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.rgbCopyBtn,
+.hexCopyBtn {
+  height: 100%;
+  padding: 10px;
+  outline: none;
+  border: 4px solid white;
+  border-left: 0px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background: transparent;
+  color: white;
+  transition: color 150ms ease-in-out;
+  font-size: 37px;
+  line-height: 37px;
+}
+.rgbCopyBtn:hover,
+.hexCopyBtn:hover {
+  color: chartreuse;
 }
